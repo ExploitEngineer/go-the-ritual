@@ -1,5 +1,3 @@
-# the-go-ritual
-
 ![Gopher image](https://golang.org/doc/gopher/fiveyears.jpg)
 
 > *A discipline. A descent. A record of understanding earned the hard way.*
@@ -313,11 +311,12 @@ This structure allows **each topic its own folder** for clarity and future expan
 Every folder, every file, every line is a deliberate step into understanding Go.
 There is no shortcut, no facade. Only mastery.
 
-![Dark Gopher](https://raw.githubusercontent.com/golang-samples/gopher-vector/master/gopher.png)
-![Gopher Night](https://blog.golang.org/gopher/gopher.png)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/golang-samples/gopher-vector/master/gopher.png" alt="Dark Gopher" width="120">
+  <img src="https://blog.golang.org/gopher/gopher.png" alt="Gopher Night" width="120">
+</div>
 
----
-
-**Author:** ExploitEngineer
-**Repository:** the-go-ritual
-*Enter deliberately. Progress relentlessly.*
+<div>
+  <strong>Author:</strong> ExploitEngineer<br>
+  <strong>Repository:</strong> the-go-ritual<br>
+  <em>Enter deliberately. Progress relentlessly.</em
