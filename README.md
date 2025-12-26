@@ -32,8 +32,8 @@ If something feels "too easy", it is examined until it no longer does.
 
 This repository is divided into **two main sections**:
 
-1. `go-by-example` – contains all topics from Go by Example exercises, each with its own folder.
-2. `roadmap` – contains topics from roadmap.sh, each as its own folder.
+1. `go-by-example` – contains a mix of simple and advanced Go topics, each in its own folder for clear navigation and organized practice.
+2. `roadmap` – also contains a mix of foundational and advanced Go topics, structured in separate folders for scalability and easy progression.
 
 All folders are **placed at the top level** to give the repository **size and presence from the start**, while maintaining a clean and organized hierarchy.
 
