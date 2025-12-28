@@ -47,4 +47,12 @@ func main() {
 		{1, 2, 3},
 	}
 	fmt.Println("2d: ", twoD)
+
+	// NOTE: Inner Representation of arrays
+	// In Go, arrays are represented as contiguous blocks of memory. This means that the elements of an array are stored one after the other in memory, making it easy to calculate the address of any element based on its index.
+
+	nums := [3]int32{1, 2, 3} // array of 3 32-bit integers
+	fmt.Println(&nums[0])
+	fmt.Println(&nums[1])
+	fmt.Println(&nums[2])
 }
