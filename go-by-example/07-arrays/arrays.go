@@ -1,33 +1,62 @@
-// In Go, an array is a numbered sequence of elements of a specific length. In typical Go code, slices are much more common; arrays are useful in some special scenarios.
-
-// NOTE: Array types are non-dimensional, but you can compose types to build multi-dimensional data structures.
+// An array is a numbered sequence of elements of the same type with a fixed length. Here's an example in Go:
 
 package main
 
 import "fmt"
 
 func main() {
-	var a [5]int
-	fmt.Println("emp:", a)
+	// declaring array
+	var nums [3]int
+	fmt.Println(nums) // [0 0 0]
 
-	a[4] = 100
-	fmt.Println("set:", a)
-	fmt.Println("get:", a[4])
+	nums[1] = 2
+	fmt.Println(nums[1])
+	fmt.Println(nums) // [0 2 0]
 
-	fmt.Println("len:", len(a))
+	//  Initializing with values
+	values := [3]int{1, 2, 3}
+	fmt.Println(values) // [1 2 3]
 
-	// here length is defined
-	b := [5]int{1, 2, 3, 4, 5}
-	fmt.Println("dcl:", b)
+	// Omit the size when initializing an array
+	values = [...]int{4, 5, 6}
+	fmt.Println(values) // [4 5 6]
 
-	// here length is inferred
-	b = [...]int{1, 2, 3, 4, 5}
-	fmt.Println("dcl:", b)
+	// In Go, the length of an array is part of its type. [3]int and [4]int are considerd completely different types, even though they both hold integers (you cannot assign a [4]int to a [3]int), or even compare them directly, because their lengths don't match
+	var first [3]int
+	var second [4]int
 
-	// NOTE: Initialize only specific elements
-	// 3:400 means: assings 400 to array index 3 (fourth element)
-	b = [...]int{100, 3: 400, 500}
-	fmt.Println("idx:", b)
+	fmt.Println(first, second)
+	// fmt.Println(a == b) -> compilation error
+
+	fmt.Println(len(second))
+
+	// length is inferred
+	arr := [...]int{10, 20, 30, 40}
+	fmt.Println(arr)
+
+	/*
+		 Inner Representation of Arrays
+
+				In Go, arrays are represented as contiguous blocks of memory. This means that the elements of an array are stored one after the other in memory, making it easy to calculate the address of any element based on its index
+	*/
+
+	fmt.Println(&nums[0]) // address of first element
+	fmt.Println(&nums[1]) // address of second element
+	fmt.Println(&nums[2]) // address of third element
+
+	// &nums is a pointer to the entire array (type *[3]int) when you print &nums, the fmt package recognizes it as a pointer to an array and shows the array's contents (&[1, 2, 3]) rather than a raw memory address.
+	fmt.Println("nums array address: ", &nums)
+
+	// Multi-dimensional Arrays
+	var matrix [2][3]int // 2x3 matrix
+	matrix[0][0] = 1
+	matrix[0][1] = 2
+	matrix[0][2] = 3
+	matrix[1][0] = 4
+	matrix[1][1] = 5
+	matrix[1][2] = 6
+
+	fmt.Println(matrix)
 
 	var twoD [2][3]int
 
@@ -47,12 +76,4 @@ func main() {
 		{1, 2, 3},
 	}
 	fmt.Println("2d: ", twoD)
-
-	// NOTE: Inner Representation of arrays
-	// In Go, arrays are represented as contiguous blocks of memory. This means that the elements of an array are stored one after the other in memory, making it easy to calculate the address of any element based on its index.
-
-	nums := [3]int32{1, 2, 3} // array of 3 32-bit integers
-	fmt.Println(&nums[0])
-	fmt.Println(&nums[1])
-	fmt.Println(&nums[2])
 }
