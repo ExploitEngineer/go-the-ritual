@@ -20,4 +20,12 @@ func main() {
 	fmt.Println(int64(d))
 
 	fmt.Println(math.Sin(n))
+
+	// multiple constants
+	const (
+		port = 5000
+		host = "localhost"
+	)
+
+	fmt.Println(port, host)
 }
