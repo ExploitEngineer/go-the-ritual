@@ -17,6 +17,9 @@ func main() {
 	values := [3]int{1, 2, 3}
 	fmt.Println(values) // [1 2 3]
 
+	// array length
+	fmt.Println(len(nums))
+
 	// Omit the size when initializing an array
 	values = [...]int{4, 5, 6}
 	fmt.Println(values) // [4 5 6]
