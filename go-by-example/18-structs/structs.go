@@ -1,4 +1,5 @@
 // Go's structs are typed collections of fields. They're useful for grouping data together to form records.
+// Struct is like classes in other languages like javascript, c++ etc...
 
 package main
 
@@ -17,6 +18,28 @@ func newPerson(name string) *person {
 	p := person{name: name}
 	p.age = 42
 	return &p
+}
+
+type User struct {
+	userName string
+	Age      uint8
+	Email    string
+	Verified bool
+}
+
+func (u *User) updateUsername(name string) {
+	u.userName = name
+}
+
+func createUser(username string, age uint8, email string, verified bool) *User {
+	user := User{
+		userName: username,
+		Age:      age,
+		Email:    email,
+		Verified: verified,
+	}
+
+	return &user
 }
 
 func main() {
@@ -57,4 +80,19 @@ func main() {
 		true,
 	}
 	fmt.Println(dog)
+
+	u := User{
+		userName: "rafay",
+		Age:      18,
+		Email:    "abdulrafayofficial.work@gmail.com",
+		Verified: true,
+	}
+
+	fmt.Println(u)
+
+	u.updateUsername("John")
+	fmt.Println(u)
+
+	newUser := createUser("Michael", 20, "dummyemail@gmail.com", false)
+	fmt.Println(newUser)
 }
