@@ -8,4 +8,5 @@ func main() {
 	SignedAndUnsignedIntegers()
 	FloatingPoints()
 	ComplexNumbers()
+	Booleans()
 }
