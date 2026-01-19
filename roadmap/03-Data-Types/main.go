@@ -3,3 +3,8 @@ Rich set of built-in types; integers (int8-64), unsigned integers (uint8-64), fl
 */
 
 package main
+
+func main() {
+	SignedAndUnsignedIntegers()
+	FloatingPoints()
+}
