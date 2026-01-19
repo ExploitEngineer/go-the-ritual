@@ -9,4 +9,5 @@ func main() {
 	FloatingPoints()
 	ComplexNumbers()
 	Booleans()
+	Runes()
 }
