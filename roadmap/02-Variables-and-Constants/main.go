@@ -4,4 +4,5 @@ func main() {
 	VarVsShort()
 	zeroValues()
 	constAndIota()
+	ScopeAndShadows()
 }
