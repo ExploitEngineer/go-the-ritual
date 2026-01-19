@@ -11,7 +11,7 @@ package main
 
 import "fmt"
 
-func main() {
+func VarVsShort() {
 	var i, j uint8 = 1, 2
 	k := 3
 	c, python, java := true, false, "no!"
