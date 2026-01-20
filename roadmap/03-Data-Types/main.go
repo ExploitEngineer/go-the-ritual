@@ -10,4 +10,5 @@ func main() {
 	ComplexNumbers()
 	Booleans()
 	Runes()
+	String()
 }
