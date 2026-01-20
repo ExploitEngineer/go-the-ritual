@@ -11,4 +11,5 @@ func main() {
 	Booleans()
 	Runes()
 	String()
+	TypeConversion()
 }
