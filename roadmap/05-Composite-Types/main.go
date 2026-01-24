@@ -4,4 +4,5 @@ func main() {
 	Arrays()
 	Slices()
 	Strings()
+	Maps()
 }
