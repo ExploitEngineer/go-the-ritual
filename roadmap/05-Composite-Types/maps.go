@@ -22,6 +22,10 @@ func Maps() {
 
 	fmt.Println(literalMap)
 
+	// The built-in delete removes key/value pairs from a map.
+	delete(m, "alice")
+	fmt.Println(m)
+
 	// access map values
 	age := m["alice"]
 	fmt.Println(age) // 23
