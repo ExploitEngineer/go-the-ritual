@@ -16,4 +16,12 @@ func Maps() {
 	// access map values
 	age := m["alice"]
 	fmt.Println(age) // 23
+
+	/*
+		iterate over a map
+		Iterating over a map means going through all key-value pairs in the map, one at a time. You do this with a foor loop and the range keyword:
+	*/
+	for key, value := range m {
+		fmt.Printf("%s: %d\n", key, value)
+	}
 }
