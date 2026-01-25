@@ -13,6 +13,15 @@ func Maps() {
 	m["bob"] = 30
 	fmt.Println(m) // map[alice:23 bob:30]
 
+	// declare a map using map literal syntax
+	literalMap := map[string]uint{
+		"John":      18,
+		"Michael":   22,
+		"sales_man": 26,
+	}
+
+	fmt.Println(literalMap)
+
 	// access map values
 	age := m["alice"]
 	fmt.Println(age) // 23
