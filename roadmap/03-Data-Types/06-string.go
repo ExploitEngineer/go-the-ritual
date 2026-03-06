@@ -1,5 +1,5 @@
 /*
-In Go, strings are read-only slice of bytes representing characters. Let's start by understanding the different ways to declare and initialize strings using string literals and raw string literals.
+In Go, In Go, strings are immutable sequences of bytes (UTF-8 encoded text). They behave similarly to read-only byte slices but are not slices. Let's start by understanding the different ways to declare and initialize strings using string literals and raw string literals.
 
 - String Literal
 String literals are enclosed in double quotes, and they allow you to use escape sequences like \n for newline or \t for tab.
@@ -29,7 +29,7 @@ func String() {
 
 	// Raw String Literal
 	rawMessage := `This is a raw string literal.
-	It can spcan multiple lines
+	It can span multiple lines
 	without escape sequences like \n.`
 	fmt.Println(rawMessage)
 
@@ -49,6 +49,7 @@ func String() {
 	fmt.Println("Score: " + scoreStr)
 
 	// Calculating String Length
+	// len(string) returns the number of BYTES, not characters.
 	// In Go, the built-in len function is used to calculate the length of the string, but it doesn't work as expected when dealing with multi-byte characters.
 	text := "Hello, 你好"
 	length := len(text)                        // Incorrect length

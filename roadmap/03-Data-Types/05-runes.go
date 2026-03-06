@@ -94,8 +94,8 @@ In Go:
   rune = alias for int32  (Unicode code point)
 
 A rune represents:
-- ONE Unicode character
-- Stored as its Unicode code point value
+- ONE Unicode code point
+- Stored as its Unicode numeric value
 
 Example:
   'A'  -> rune(65)
@@ -135,8 +135,8 @@ func Runes() {
 /*
 6. Printing Runes
 
-- %c  → prints rune as character
-- string(rune) → converts rune to string
+- %c  → prints the rune as a character
+- string(rune) → converts the Unicode code point into a UTF-8 encoded string
 
 7. Strings vs Runes (CRITICAL)
 
@@ -144,7 +144,7 @@ Strings in Go are:
 - UTF-8 encoded
 - Sequence of BYTES
 
-Indexing a string gives a BYTE, NOT a character.
+Indexing a string returns a BYTE (uint8), NOT a rune character.
 
 Example:
   str := "💞 code"
@@ -157,8 +157,8 @@ for Unicode text.
 8. Correct Way: range
 
 Using `range` on a string:
-- Decodes UTF-8
-- Returns runes (characters)
+- Decodes UTF-8 sequences
+- Returns Unicode code points as runes
 
 9. Mental Model (LOCK THIS)
 
