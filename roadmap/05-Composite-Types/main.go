@@ -6,4 +6,5 @@ func main() {
 	Strings()
 	Maps()
 	CapacityAndGrowth()
+	MakeNew()
 }
