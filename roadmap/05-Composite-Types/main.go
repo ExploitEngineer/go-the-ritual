@@ -8,4 +8,5 @@ func main() {
 	CapacityAndGrowth()
 	MakeNew()
 	SliceToArray()
+	ArrayToSlice()
 }
