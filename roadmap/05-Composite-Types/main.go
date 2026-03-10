@@ -9,4 +9,5 @@ func main() {
 	MakeNew()
 	SliceToArray()
 	ArrayToSlice()
+	CommaOKIdiom()
 }
