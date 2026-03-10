@@ -7,4 +7,5 @@ func main() {
 	Maps()
 	CapacityAndGrowth()
 	MakeNew()
+	SliceToArray()
 }
