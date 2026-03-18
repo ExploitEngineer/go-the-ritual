@@ -6,4 +6,5 @@ func main() {
 	MultipleReturnValues()
 	AnonymousFunctions()
 	Closures()
+	NamedReturnValues()
 }
