@@ -4,4 +4,5 @@ func main() {
 	FunctionBasics()
 	VariadicFunctions()
 	MultipleReturnValues()
+	AnonymousFunctions()
 }
