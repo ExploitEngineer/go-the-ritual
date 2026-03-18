@@ -5,4 +5,5 @@ func main() {
 	VariadicFunctions()
 	MultipleReturnValues()
 	AnonymousFunctions()
+	Closures()
 }
