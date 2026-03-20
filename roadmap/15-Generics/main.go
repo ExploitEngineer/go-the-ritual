@@ -4,4 +4,5 @@ func main() {
 	WhyGenerics()
 	GenericFunctions()
 	GenericTypesInterfaces()
+	TypeConstraints()
 }
