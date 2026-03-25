@@ -5,4 +5,5 @@ func main() {
 	Packages()
 	PackageImportRules()
 	UsingThirdPartyPackages()
+	PublishingModules()
 }
