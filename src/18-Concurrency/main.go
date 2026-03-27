@@ -5,4 +5,5 @@ func main() {
 	Channels()
 	SelectStatement()
 	BufferedVsUnbufferedChannels()
+	DirectionalVsNilChannels()
 }
