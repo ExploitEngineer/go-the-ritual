@@ -7,4 +7,5 @@ func main() {
 	BufferedVsUnbufferedChannels()
 	DirectionalVsNilChannels()
 	ClosedChannels()
+	SyncPackage()
 }
