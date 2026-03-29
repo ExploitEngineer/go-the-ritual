@@ -8,4 +8,5 @@ func main() {
 	DirectionalVsNilChannels()
 	ClosedChannels()
 	SyncPackage()
+	Mutexes()
 }
