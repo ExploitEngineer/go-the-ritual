@@ -1,180 +1,115 @@
 package main
 
+import "fmt"
+
 /*
-ASCII, Unicode, UTF & Runes
+Introduction to Runes
 
-1. ASCII (The Old World)
+A rune in Go represents a single Unicode code point.
 
-ASCII = American Standard Code for Information Interchange
+Technically:
+	type rune = int32
 
-- Created in the early days of computing
-- Uses **7 bits** (0–127)
-- Can represent only:
-  - English letters (A–Z, a–z)
-  - Digits (0–9)
-  - Basic symbols (!, @, #, etc.)
-  - Control characters (\n, \t, etc.)
-
-Example:
-  'A' = 65
-  'a' = 97
-  '0' = 48
-
-Problem with ASCII:
-- It CANNOT represent:
-  - Arabic
-  - Chinese
-  - Japanese
-  - Emojis
-
-ASCII is **too small** for the real world.
-
-2. Unicode (The Global Solution)
-
-Unicode is NOT an encoding.
-Unicode is a **global character dictionary**.
-
-Unicode:
-- Assigns a unique NUMBER to every character
-- This number is called a **code point**
+This means a rune is just a number underneath whose purpose is
+to represent one Unicode character.
 
 Examples:
-  'A'  -> U+0041
-  '¥'  -> U+00A5
-  '💞' -> U+1F49E
+	'A' = 65
+	'a' = 97
+	'¥' = 165
+	'你' = 20320
 
-Unicode is a **superset of ASCII**:
-- ASCII characters keep the same values
-
-Important:
-Unicode only defines numbers.
-It does NOT define how those numbers are stored in memory.
-
-3. UTF Encodings (Storage Rules)
-
-UTF = Unicode Transformation Format
-
-UTF answers the question:
-"How do we store Unicode code points in memory?"
-
-Common UTFs:
-- UTF-8   (Go uses this)
-- UTF-16
-- UTF-32
-
-UTF-8 (Very Important for Go)
-
-UTF-8 properties:
-- Variable length encoding
-- Uses **1 to 4 bytes per character**
-
-Rules:
-- ASCII characters → 1 byte
-- Other characters → 2 to 4 bytes
-
-Examples:
-  'A'   -> 1 byte
-  '¥'   -> 2 bytes
-  '💞'  -> 4 bytes
-
-Why UTF-8 won?
-- Backward compatible with ASCII
-- Memory efficient
-- Dominates the internet
-
-Go strings are:
-- Immutable
-- UTF-8 encoded byte sequences
-
-4. Rune (Go’s Character Type)
-
-In Go:
-
-  byte = alias for uint8  (raw byte)
-  rune = alias for int32  (Unicode code point)
-
-A rune represents:
-- ONE Unicode code point
-- Stored as its Unicode numeric value
-
-Example:
-  'A'  -> rune(65)
-  '¥'  -> rune(165)
-  '💞' -> rune(128158)
-
-Rune exists because:
-- Strings are bytes
-- Humans think in characters
-
-5. Declaring Runes
+Go uses runes because ASCII was too limited and could not support
+many languages/symbols. Unicode solved this by assigning every
+character a unique numeric value, and Go stores those values as runes.
 */
 
-func Runes() {
-	// Rune literal (recommended)
+/*
+Basic Usage of Runes
+
+Runes are written using single quotes.
+
+They can be initialized directly, with unicode escape sequences,
+or by converting numbers into runes.
+*/
+func BasicRunes() {
+	letter := 'A'
 	yen := '¥'
+	unicodeA := '\u0041'
+	numberRune := rune(66)
 
-	// Integer (represents Unicode code point)
-	japYen := 165
+	fmt.Println(letter) // 65
+	fmt.Println(yen)    // 165
 
-	// Hexadecimal Unicode value
-	hexYen := 0x00A5
+	fmt.Printf("%c\n", letter)     // A
+	fmt.Printf("%c\n", yen)        // ¥
+	fmt.Printf("%c\n", unicodeA)   // A
+	fmt.Printf("%c\n", numberRune) // B
 
-	// Unicode escape
-	unicodeYen := '\u00A5'
-
-	// Octal escape
-	octalYen := '\245'
-
-	_ = yen
-	_ = japYen
-	_ = hexYen
-	_ = unicodeYen
-	_ = octalYen
+	// Since rune is numeric, arithmetic works
+	fmt.Printf("%c\n", 'A'+1) // B
 }
 
 /*
-6. Printing Runes
+Text Analyzer Use Case
 
-- %c  → prints the rune as a character
-- string(rune) → converts the Unicode code point into a UTF-8 encoded string
+One common use of runes is analyzing text character-by-character.
 
-7. Strings vs Runes (CRITICAL)
+Below is a simple analyzer that counts:
+  - total characters
+  - uppercase letters
+  - lowercase letters
+  - words
+  - lines
 
-Strings in Go are:
-- UTF-8 encoded
-- Sequence of BYTES
-
-Indexing a string returns a BYTE (uint8), NOT a rune character.
-
-Example:
-  str := "💞 code"
-
-  str[0] -> first byte (NOT 💞)
-
-This is why slicing strings is dangerous
-for Unicode text.
-
-8. Correct Way: range
-
-Using `range` on a string:
-- Decodes UTF-8 sequences
-- Returns Unicode code points as runes
-
-9. Mental Model (LOCK THIS)
-
-byte  → storage unit
-rune  → character
-string → bytes (UTF-8)
-range  → character-safe iteration
-
-10. Why Runes Matter
-
-Runes are essential for:
-- Multilingual text
-- Emojis
-- Correct string processing
-- Security-sensitive parsing
-
-If you ignore runes, your program WILL break
-for non-English input.
+We use []rune here because runes let us inspect individual characters directly.
 */
+func TextAnalyzer() {
+	text := []rune{
+		'H', 'e', 'l', 'l', 'o', ' ',
+		'W', 'O', 'R', 'L', 'D',
+		'\n',
+		'G', 'o',
+	}
+
+	var (
+		characters int
+		uppercase  int
+		lowercase  int
+		words      int
+		lines      int = 1
+	)
+
+	inWord := false
+
+	for _, r := range text {
+		characters++
+
+		if r >= 'A' && r <= 'Z' {
+			uppercase++
+		}
+
+		if r >= 'a' && r <= 'z' {
+			lowercase++
+		}
+
+		if r == '\n' {
+			lines++
+		}
+
+		if r != ' ' && r != '\n' && !inWord {
+			words++
+			inWord = true
+		}
+
+		if r == ' ' || r == '\n' {
+			inWord = false
+		}
+	}
+
+	fmt.Println("Characters:", characters)
+	fmt.Println("Uppercase :", uppercase)
+	fmt.Println("Lowercase :", lowercase)
+	fmt.Println("Words     :", words)
+	fmt.Println("Lines     :", lines)
+}
