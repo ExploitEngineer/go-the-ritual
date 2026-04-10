@@ -30,4 +30,9 @@ func main() {
 	datatypes.IntegerTypeShowcase()
 	datatypes.OverflowExperiment()
 	datatypes.FloatPrecisionTest()
+	datatypes.BooleanLogic()
+	datatypes.RuneInspection()
+	datatypes.StringLengthTrap()
+	datatypes.TypeConversion()
+	datatypes.ComplexNumber()
 }
