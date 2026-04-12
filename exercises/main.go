@@ -4,6 +4,7 @@ import (
 	introduction "github.com/ExploitEngineer/go-the-ritual/exercises/00-introduction"
 	variables "github.com/ExploitEngineer/go-the-ritual/exercises/01-variables-and-constants"
 	datatypes "github.com/ExploitEngineer/go-the-ritual/exercises/02-data-types"
+	compositetypes "github.com/ExploitEngineer/go-the-ritual/exercises/03-composite-types"
 )
 
 func main() {
@@ -35,4 +36,14 @@ func main() {
 	datatypes.StringLengthTrap()
 	datatypes.TypeConversion()
 	datatypes.ComplexNumber()
+
+	compositetypes.ArrayVsSlice()
+	compositetypes.SliceReferenceTrap()
+	compositetypes.SliceAppendGrowth()
+	compositetypes.MakeVsLiteral()
+	compositetypes.MapBasicOperation()
+	compositetypes.CommaOkIdiom()
+	compositetypes.MissingKeyPitfall()
+	compositetypes.SliceLengthVsCapacity()
+	compositetypes.ArrayToSlice()
 }
