@@ -5,6 +5,7 @@ import (
 	variables "github.com/ExploitEngineer/go-the-ritual/exercises/01-variables-and-constants"
 	datatypes "github.com/ExploitEngineer/go-the-ritual/exercises/02-data-types"
 	compositetypes "github.com/ExploitEngineer/go-the-ritual/exercises/03-composite-types"
+	structs "github.com/ExploitEngineer/go-the-ritual/exercises/04-structs"
 )
 
 func main() {
@@ -46,4 +47,14 @@ func main() {
 	compositetypes.MissingKeyPitfall()
 	compositetypes.SliceLengthVsCapacity()
 	compositetypes.ArrayToSlice()
+
+	structs.BasicStructCreation()
+	structs.MultipleInitializationStyles()
+	structs.PointerVsValues()
+	structs.NestedStructs()
+	structs.JsonTags()
+	structs.UnexpectedFieldsTrap()
+	structs.StructComparison()
+	structs.ZeroValueStruct()
+	structs.RealMiniSystem()
 }
