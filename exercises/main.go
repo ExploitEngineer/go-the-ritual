@@ -6,6 +6,7 @@ import (
 	datatypes "github.com/ExploitEngineer/go-the-ritual/exercises/02-data-types"
 	compositetypes "github.com/ExploitEngineer/go-the-ritual/exercises/03-composite-types"
 	structs "github.com/ExploitEngineer/go-the-ritual/exercises/04-structs"
+	conditionals "github.com/ExploitEngineer/go-the-ritual/exercises/05-conditionals"
 )
 
 func main() {
@@ -57,4 +58,14 @@ func main() {
 	structs.StructComparison()
 	structs.ZeroValueStruct()
 	structs.RealMiniSystem()
+
+	conditionals.BasicAgeCheck()
+	conditionals.NumberSignDetector()
+	conditionals.LoginValidation()
+	conditionals.NestedIf()
+	conditionals.ShortStatementIf()
+	conditionals.SwitchDayChecker()
+	conditionals.SwitchWithoutExpression()
+	conditionals.FallthroughTest()
+	conditionals.MiniGradeSystem()
 }
